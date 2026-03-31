@@ -692,11 +692,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-
-        .product-card:hover .product-image img {
-            transform: scale(1.05);
+            transition: none;
         }
 
         .product-badge {
@@ -1396,6 +1392,208 @@
                 justify-content: center;
             }
         }
+
+        /* Product Modal */
+        .product-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            padding: 2rem;
+        }
+
+        .product-modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .product-modal {
+            background: var(--color-white);
+            border-radius: 20px;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
+        }
+
+        .product-modal-overlay.active .product-modal {
+            transform: scale(1);
+        }
+
+        .product-modal-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px 0 0 20px;
+        }
+
+        .product-modal-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            min-height: 400px;
+        }
+
+        .product-modal-content {
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .product-modal-close:hover {
+            background: var(--color-white);
+            transform: scale(1.1);
+        }
+
+        .product-modal-badge {
+            display: inline-block;
+            padding: 6px 14px;
+            background: var(--color-primary);
+            color: var(--color-white);
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+            width: fit-content;
+        }
+
+        .product-modal-title {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-modal-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-wood-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .product-modal-description {
+            color: var(--color-text);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            opacity: 0.85;
+        }
+
+        .product-modal-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: auto;
+        }
+
+        .btn-buy {
+            background: linear-gradient(135deg, #E85D04 0%, #DC2F02 100%);
+            color: var(--color-white);
+            padding: 18px 36px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            box-shadow: 0 8px 30px rgba(232, 93, 4, 0.35);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .btn-buy:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(232, 93, 4, 0.45);
+        }
+
+        .btn-customize {
+            background: var(--color-primary);
+            color: var(--color-white);
+            padding: 18px 36px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--color-primary);
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .btn-customize:hover {
+            background: var(--color-accent);
+            border-color: var(--color-accent);
+        }
+
+        .btn-back {
+            background: transparent;
+            color: var(--color-text);
+            padding: 12px 24px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn-back:hover {
+            color: var(--color-primary);
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .product-modal {
+                grid-template-columns: 1fr;
+                border-radius: 20px;
+            }
+
+            .product-modal-image {
+                border-radius: 20px 20px 0 0;
+                height: 250px;
+            }
+
+            .product-modal-content {
+                padding: 1.5rem;
+            }
+
+            .product-modal-title {
+                font-size: 1.5rem;
+            }
+
+            .product-modal-price {
+                font-size: 2rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1567,7 +1765,7 @@
                 <span class="product-badge">FSC Certificado</span>
                 <h3 class="product-name">Mesa de Jantar Íris</h3>
                 <p class="product-price">R$ 1.890</p>
-                <button class="btn btn-secondary">Ver Peça</button>
+                <button class="btn btn-secondary" onclick="openProductModal('src/images/collection/p1.png', 'Mesa de Jantar Íris', 'R$ 1.890', 'Mesa de jantar elegante feita com madeira reciclada certificada FSC. Design contemporâneo com acabamento premium, perfeito para ambientes de alto padrão. Dimensões: 180x90cm.')">Ver Peça</button>
             </div>
             <div class="product-card">
                 <div class="product-image">
@@ -1576,7 +1774,7 @@
                 <span class="product-badge">FSC Certificado</span>
                 <h3 class="product-name">Cadeira Ripada Cerrado</h3>
                 <p class="product-price">R$ 540</p>
-                <button class="btn btn-secondary">Ver Peça</button>
+                <button class="btn btn-secondary" onclick="openProductModal('src/images/collection/p2.png', 'Cadeira Ripada Cerrado', 'R$ 540', 'CadeiraRipada comdesign único, construída com madeira reciclada certificada. Estrutura robusta com acabamento refinado, ideal para ambientes internos e externos protegidos.')">Ver Peça</button>
             </div>
             <div class="product-card">
                 <div class="product-image">
@@ -1585,7 +1783,7 @@
                 <span class="product-badge">FSC Certificado</span>
                 <h3 class="product-name">Estante Modular Mata</h3>
                 <p class="product-price">R$ 2.350</p>
-                <button class="btn btn-secondary">Ver Peça</button>
+                <button class="btn btn-secondary" onclick="openProductModal('src/images/collection/p3.png', 'Estante Modular Mata', 'R$ 2.350', 'Estante modular multifuncional em madeira reciclada certificada. Design moderno com módulos ajustáveis, perfeita para organizar e_decorar qualquer ambiente.')">Ver Peça</button>
             </div>
             <div class="product-card">
                 <div class="product-image">
@@ -1594,7 +1792,7 @@
                 <span class="product-badge">FSC Certificado</span>
                 <h3 class="product-name">Banco Trio Savana</h3>
                 <p class="product-price">R$ 590</p>
-                <button class="btn btn-secondary">Ver Peça</button>
+                <button class="btn btn-secondary" onclick="openProductModal('src/images/collection/p4.png', 'Banco Trio Savana', 'R$ 590', 'Conjunto de três bancos em madeira reciclada certificada com design orgânico. Acabamento natural que destaca a beleza da madeira.recyclada.')">Ver Peça</button>
             </div>
             <div class="product-card">
                 <div class="product-image">
@@ -1603,7 +1801,7 @@
                 <span class="product-badge">FSC Certificado</span>
                 <h3 class="product-name">Mesa Lateral Raiz</h3>
                 <p class="product-price">R$ 536</p>
-                <button class="btn btn-secondary">Ver Peça</button>
+                <button class="btn btn-secondary" onclick="openProductModal('src/images/collection/p5.png', 'Mesa Lateral Raiz', 'R$ 536', 'Mesa lateral compacta em madeira reciclada certificada. Design minimalista com texturas naturais, perfeita para complementar ambientes living ou área de serviço.')">Ver Peça</button>
             </div>
             <div class="product-card">
                 <div class="product-image">
@@ -1612,7 +1810,7 @@
                 <span class="product-badge">FSC Certificado</span>
                 <h3 class="product-name">Poltrona Tronco</h3>
                 <p class="product-price">R$ 980</p>
-                <button class="btn btn-secondary">Ver Peça</button>
+                <button class="btn btn-secondary" onclick="openProductModal('src/images/collection/clean-product-shot-of-a-tall-minimalist-modular-sh.jpeg', 'Poltrona Tronco', 'R$ 980', 'Poltrona de design contemporâneo em madeira reciclada certificada. Estrutura curvas e ergonômica que proporciona conforto e estilo ao ambiente.')">Ver Peça</button>
             </div>
         </div>
     </section>
@@ -1824,6 +2022,31 @@
             </div>
         </div>
     </section>
+
+    <!-- Product Modal -->
+    <div class="product-modal-overlay" id="productModal">
+        <div class="product-modal">
+            <button class="product-modal-close" onclick="closeProductModal()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1B4332" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+            <div class="product-modal-image">
+                <img id="modalProductImage" src="" alt="">
+            </div>
+            <div class="product-modal-content">
+                <span class="product-modal-badge">FSC Certificado</span>
+                <h2 class="product-modal-title" id="modalProductName"></h2>
+                <p class="product-modal-price" id="modalProductPrice"></p>
+                <p class="product-modal-description" id="modalProductDescription"></p>
+                <div class="product-modal-actions">
+                    <button class="btn-buy" onclick="buyProduct()">Comprar</button>
+                    <button class="btn-customize">Pedir Personalizado</button>
+                    <button class="btn-back" onclick="closeProductModal()">Voltar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Section 10: Footer -->
     <footer id="footer">
@@ -2264,6 +2487,39 @@
                     alert('Obrigado! Em breve entraremos em contato.');
                 });
             }
+
+            // Product Modal Functions
+            window.openProductModal = function(imageSrc, name, price, description) {
+                document.getElementById('modalProductImage').src = imageSrc;
+                document.getElementById('modalProductImage').alt = name;
+                document.getElementById('modalProductName').textContent = name;
+                document.getElementById('modalProductPrice').textContent = price;
+                document.getElementById('modalProductDescription').textContent = description;
+                document.getElementById('productModal').classList.add('active');
+                document.body.style.overflow = 'hidden';
+            };
+
+            window.closeProductModal = function() {
+                document.getElementById('productModal').classList.remove('active');
+                document.body.style.overflow = '';
+            };
+
+            window.buyProduct = function() {
+                const name = document.getElementById('modalProductName').textContent;
+                alert('Obrigado! Em breve você será redirecionado para finalizar a compra de: ' + name);
+            };
+
+            document.getElementById('productModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeProductModal();
+                }
+            });
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeProductModal();
+                }
+            });
         });
     </script>
 </body>
