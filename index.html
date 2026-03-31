@@ -1,0 +1,2237 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoMóveis - Móveis de Madeira Reciclada Certificada FSC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        :root {
+            --color-primary: #1B4332;
+            --color-accent: #2D6A4F;
+            --color-wood-light: #C8A96E;
+            --color-wood-dark: #7B5635;
+            --color-bg: #F5F0E8;
+            --color-text: #1A1A1A;
+            --color-white: #FFFFFF;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            --transition: 0.3s ease;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            line-height: 1.6;
+            color: var(--color-text);
+            background-color: var(--color-bg);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        h1 { font-size: 4rem; }
+        h2 { font-size: 2.5rem; }
+        h3 { font-size: 1.5rem; }
+        h4 { font-size: 1.25rem; }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-divider {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-wood-dark), var(--color-wood-light));
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 6px;
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--color-primary);
+            color: var(--color-white);
+            border-color: var(--color-primary);
+        }
+
+        .btn-primary:hover {
+            background: var(--color-accent);
+            border-color: var(--color-accent);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--color-white);
+            border-color: var(--color-white);
+        }
+
+        .btn-outline:hover {
+            background: var(--color-white);
+            color: var(--color-primary);
+        }
+
+        .btn-outline-dark {
+            background: transparent;
+            color: var(--color-primary);
+            border-color: var(--color-primary);
+        }
+
+        .btn-outline-dark:hover {
+            background: var(--color-primary);
+            color: var(--color-white);
+        }
+
+        .btn-secondary {
+            background: var(--color-wood-light);
+            color: var(--color-text);
+            border-color: var(--color-wood-light);
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-wood-dark);
+            border-color: var(--color-wood-dark);
+            color: var(--color-white);
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: var(--color-white);
+            border-color: #25D366;
+        }
+
+        .btn-whatsapp:hover {
+            background: #128C7E;
+            border-color: #128C7E;
+        }
+
+        /* Navbar */
+        #navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.25rem 0;
+            transition: all 0.4s ease;
+            background: transparent;
+        }
+
+        #navbar.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 0.75rem 0;
+        }
+
+        #navbar.scrolled .navbar-logo {
+            color: var(--color-primary);
+        }
+
+        #navbar.scrolled .navbar-logo svg {
+            stroke: var(--color-primary);
+        }
+
+        #navbar.scrolled .navbar-links a {
+            color: var(--color-text);
+        }
+
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--color-white);
+            transition: all 0.4s ease;
+        }
+
+        .navbar-logo svg {
+            stroke: var(--color-white);
+            transition: all 0.4s ease;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .navbar-links a {
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.9rem;
+            letter-spacing: 0.3px;
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .navbar-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-wood-light);
+            transition: all 0.4s ease;
+        }
+
+        .navbar-links a:hover::after {
+            width: 100%;
+        }
+
+        .navbar-cta {
+            padding: 10px 24px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: var(--color-white);
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.4s ease;
+        }
+
+        .navbar-cta:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: var(--color-white);
+        }
+
+        .navbar-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .navbar-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--color-primary);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        /* Hero Section */
+        #hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            overflow: hidden;
+        }
+
+        .hero-slider {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero-slide {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .hero-slide-bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            animation: heroZoom 20s ease-in-out infinite alternate;
+        }
+
+        @keyframes heroZoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05); }
+        }
+
+        .hero-slide-overlay {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at 30% 50%, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.75) 70%);
+            z-index: 1;
+        }
+
+        .hero-slide-content {
+            position: relative;
+            z-index: 10;
+            max-width: 680px;
+            padding: 0 4rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            min-height: 100vh;
+            justify-content: center;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--color-wood-light);
+            background: rgba(200, 169, 110, 0.15);
+            border: 1px solid rgba(200, 169, 110, 0.3);
+            margin-bottom: 2rem;
+        }
+
+        .hero-title {
+            color: var(--color-white);
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .hero-title span {
+            display: block;
+        }
+
+        .hero-subtitle {
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 1.125rem;
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+            max-width: 520px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-cta {
+            background: linear-gradient(135deg, #E85D04 0%, #DC2F02 100%);
+            color: var(--color-white);
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            box-shadow: 0 8px 30px rgba(232, 93, 4, 0.35);
+            transition: all 0.3s ease;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(232, 93, 4, 0.45);
+        }
+
+        .btn-hero-outline {
+            background: transparent;
+            color: var(--color-white);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-hero-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--color-white);
+        }
+
+        .hero-badge {
+            position: absolute;
+            bottom: 3rem;
+            left: 4rem;
+            z-index: 25;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 14px 24px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .hero-slider-nav {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            z-index: 30;
+        }
+
+        .slider-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: var(--color-white);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .slider-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+        .slider-dots {
+            display: flex;
+            gap: 10px;
+        }
+
+        .slider-dots .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.35);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .slider-dots .dot.active {
+            background: var(--color-white);
+            transform: scale(1.3);
+        }
+
+        .slider-dots .dot:hover {
+            background: rgba(255, 255, 255, 0.6);
+        }
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .hero-badge svg {
+            color: var(--color-wood-light);
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 3rem;
+            right: 4rem;
+            z-index: 25;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: scrollFloat 2.5s ease-in-out infinite;
+            cursor: pointer;
+        }
+
+        .hero-scroll svg {
+            animation: scrollArrow 2s ease-in-out infinite;
+        }
+
+        @keyframes scrollFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(8px); }
+        }
+
+        @keyframes scrollArrow {
+            0%, 100% { opacity: 1; transform: translateY(0); }
+            50% { opacity: 0.4; transform: translateY(6px); }
+        }
+
+        @media (max-width: 768px) {
+            .hero-slide-content {
+                padding: 0 1.5rem;
+                align-items: center;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-badge {
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: 5rem;
+            }
+
+            .hero-slider-nav {
+                bottom: 4rem;
+            }
+
+            .hero-scroll {
+                display: none;
+            }
+        }
+
+        /* Metrics Bar */
+        #metrics {
+            background: var(--color-primary);
+            padding: 2rem 0;
+        }
+
+        .metrics-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .metric-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--color-white);
+        }
+
+        .metric-item svg {
+            color: var(--color-wood-light);
+        }
+
+        .metric-value {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Products Section */
+        #products {
+            padding: 5rem 2rem;
+            background: var(--color-bg);
+        }
+
+        .products-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: linear-gradient(145deg, #F5F0E8 0%, #E8DFD0 100%);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(123, 86, 53, 0.1);
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-wood-dark), var(--color-wood-light));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px rgba(27, 67, 50, 0.2);
+        }
+
+        .product-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .product-image {
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, rgba(123, 86, 53, 0.05) 0%, rgba(200, 169, 110, 0.1) 100%);
+            border-radius: 12px;
+            transition: var(--transition);
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--color-primary);
+            color: var(--color-white);
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .product-name {
+            color: var(--color-text);
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        /* About Section */
+        #about {
+            padding: 5rem 2rem;
+            background: var(--color-white);
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-content .section-header {
+            text-align: left;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content .section-divider {
+            margin: 0;
+        }
+
+        .about-text {
+            color: var(--color-text);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-pillars {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .pillar-card {
+            background: var(--color-primary);
+            color: var(--color-white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .pillar-card:hover {
+            background: var(--color-accent);
+            transform: translateY(-4px);
+        }
+
+        .pillar-icon {
+            margin-bottom: 1rem;
+            color: var(--color-wood-light);
+        }
+
+        .pillar-card h4 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .pillar-card p {
+            font-size: 0.875rem;
+            opacity: 0.9;
+        }
+
+        /* Sustainability Section */
+        #sustainability {
+            padding: 5rem 2rem;
+            background: var(--color-bg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sustainability-background {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(30deg, rgba(200, 169, 110, 0.1) 12%, transparent 12.5%, transparent 87%, rgba(200, 169, 110, 0.1) 87.5%),
+                linear-gradient(150deg, rgba(200, 169, 110, 0.1) 12%, transparent 12.5%, transparent 87%, rgba(200, 169, 110, 0.1) 87.5%),
+                linear-gradient(30deg, rgba(200, 169, 110, 0.1) 12%, transparent 12.5%, transparent 87%, rgba(200, 169, 110, 0.1) 87.5%),
+                linear-gradient(150deg, rgba(200, 169, 110, 0.1) 12%, transparent 12.5%, transparent 87%, rgba(200, 169, 110, 0.1) 87.5%);
+            background-size: 80px 140px;
+            background-position: 0 0, 0 0, 40px 70px, 40px 70px;
+        }
+
+        .sustainability-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .sustainability-blocks {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .sustainability-block {
+            flex: 1;
+            text-align: center;
+            padding: 2rem;
+            background: var(--color-white);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+        }
+
+        .sustainability-block:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .sustainability-icon {
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .sustainability-block h3 {
+            color: var(--color-primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .sustainability-block p {
+            color: var(--color-text);
+            font-size: 0.95rem;
+        }
+
+        /* Roadmap Section */
+        #roadmap {
+            padding: 5rem 2rem;
+            background: var(--color-white);
+        }
+
+        .roadmap-timeline {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-top: 2rem;
+        }
+
+        .timeline-line {
+            position: absolute;
+            top: 2.6rem;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-wood-light), var(--color-primary));
+            border-radius: 2px;
+        }
+
+        .timeline-milestone {
+            position: relative;
+            flex: 1;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .milestone-dot {
+            width: 20px;
+            height: 20px;
+            background: var(--color-wood-light);
+            border: 4px solid var(--color-white);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .milestone-content {
+            background: var(--color-bg);
+            padding: 1.25rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .milestone-phase {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--color-accent);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .milestone-content h4 {
+            color: var(--color-primary);
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .milestone-content p {
+            font-size: 0.875rem;
+            color: var(--color-text);
+            opacity: 0.8;
+        }
+
+        /* Testimonials Section */
+        #testimonials {
+            background: var(--color-primary);
+            padding: 5rem 2rem;
+        }
+
+        .testimonials-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .testimonials-track {
+            display: flex;
+            gap: 2rem;
+            overflow: hidden;
+        }
+
+        .testimonial-card {
+            flex: 1;
+            min-width: 280px;
+            background: var(--color-white);
+            border-radius: 12px;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 1rem;
+            left: 1.5rem;
+            font-family: var(--font-heading);
+            font-size: 4rem;
+            color: var(--color-wood-light);
+            opacity: 0.3;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            color: var(--color-text);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            border-top: 2px solid var(--color-wood-light);
+            padding-top: 1rem;
+        }
+
+        .author-name {
+            display: block;
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+
+        .author-role {
+            font-size: 0.875rem;
+            color: var(--color-text);
+            opacity: 0.7;
+        }
+
+        .testimonials-nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .nav-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            background: transparent;
+            color: var(--color-white);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .nav-btn:hover {
+            background: var(--color-white);
+            color: var(--color-primary);
+            border-color: var(--color-white);
+        }
+
+        .testimonials-dots {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .dot.active {
+            background: var(--color-white);
+            transform: scale(1.2);
+        }
+
+        /* Contact CTA Section */
+        #contact {
+            position: relative;
+            padding: 5rem 2rem;
+            overflow: hidden;
+        }
+
+        .contact-background {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-wood-light) 100%);
+            z-index: 1;
+        }
+
+        .contact-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-content h2 {
+            color: var(--color-white);
+            margin-bottom: 1rem;
+        }
+
+        .contact-content p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .contact-address {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            color: var(--color-white);
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        #footer {
+            background: #0F2A1D;
+            color: var(--color-white);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--color-white);
+            margin-bottom: 1rem;
+        }
+
+        .footer-tagline {
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-fsc {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+        }
+
+        .footer-links h4, .footer-social h4 {
+            font-size: 1rem;
+            margin-bottom: 1.25rem;
+            color: var(--color-wood-light);
+        }
+
+        .footer-links ul {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--color-white);
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--color-wood-light);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background: var(--color-primary);
+            border-color: var(--color-primary);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            font-size: 0.875rem;
+            opacity: 0.7;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-small {
+            font-size: 0.75rem !important;
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+        }
+
+        .slide-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.6s ease;
+        }
+
+        .slide-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: all 0.6s ease;
+        }
+
+        .slide-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: all 0.6s ease;
+        }
+
+        .slide-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.6s ease;
+        }
+
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            h1 { font-size: 3rem; }
+            h2 { font-size: 2rem; }
+
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-container {
+                gap: 2rem;
+            }
+
+            .sustainability-blocks {
+                flex-wrap: wrap;
+            }
+
+            .sustainability-block {
+                flex: 1 1 280px;
+            }
+
+            .roadmap-timeline {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .timeline-line {
+                display: none;
+            }
+
+            .timeline-milestone {
+                flex: 1 1 45%;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 1.75rem; }
+            h3 { font-size: 1.25rem; }
+
+            .navbar-links, .navbar-cta {
+                display: none;
+            }
+
+            .navbar-toggle {
+                display: flex;
+            }
+
+            .navbar-links.active {
+                display: flex;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--color-white);
+                flex-direction: column;
+                padding: 1.5rem;
+                gap: 1rem;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            }
+
+            .navbar-cta.active {
+                display: block;
+                margin-top: 1rem;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .metrics-container {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .metric-item {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-pillars {
+                grid-template-columns: 1fr;
+            }
+
+            .sustainability-blocks {
+                flex-direction: column;
+            }
+
+            .sustainability-block {
+                flex: 1 1 auto;
+            }
+
+            .timeline-milestone {
+                flex: 1 1 100%;
+            }
+
+            .testimonials-track {
+                flex-direction: column;
+            }
+
+            .testimonial-card {
+                min-width: auto;
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-buttons .btn {
+                width: 100%;
+                max-width: 280px;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-logo {
+                justify-content: center;
+            }
+
+            .footer-fsc {
+                justify-content: center;
+            }
+
+            .footer-links ul {
+                align-items: center;
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Section 1: Navbar -->
+    <nav id="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1B4332" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+                    <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+                </svg>
+                <span>EcoMóveis</span>
+            </a>
+            <ul class="navbar-links">
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#products">Produtos</a></li>
+                <li><a href="#sustainability">Sustentabilidade</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+            <a href="#products" class="navbar-cta">Ver Coleção</a>
+        </div>
+    </nav>
+
+    <!-- Section 2: Hero -->
+    <section id="hero">
+        <div class="hero-slider">
+            <div class="hero-slide active" data-slide="0">
+                <div class="hero-slide-bg" style="background-image: url('src/images/slide1.jpg');"></div>
+                <div class="hero-slide-overlay"></div>
+                <div class="hero-slide-content">
+                    <span class="hero-tag">Design Sustentável</span>
+                    <h1 class="hero-title">
+                        <span>Feito com Madeira.</span>
+                        <span>Pensado para o Futuro.</span>
+                    </h1>
+                    <p class="hero-subtitle">Móveis autorais de madeira reciclada certificada FSC. Design contemporâneo para ambientes de alto padrão.</p>
+                    <div class="hero-buttons">
+                        <a href="#products" class="btn btn-cta">Explorar Coleção</a>
+                        <a href="#about" class="btn btn-hero-outline">Nossa História</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-slide" data-slide="1">
+                <div class="hero-slide-bg" style="background-image: url('src/images/slide2.jpg');"></div>
+                <div class="hero-slide-overlay"></div>
+                <div class="hero-slide-content">
+                    <span class="hero-tag">Arte em Cada Peça</span>
+                    <h1 class="hero-title">
+                        <span>Craftsmanship</span>
+                        <span>que Conta Histórias</span>
+                    </h1>
+                    <p class="hero-subtitle">Cada móvel é uma obra única, criada por artesãos dedicados que transformam materiais reciclados em arte.</p>
+                    <div class="hero-buttons">
+                        <a href="#products" class="btn btn-cta">Ver Coleção</a>
+                        <a href="#about" class="btn btn-hero-outline">Nossa Equipe</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-slide" data-slide="2">
+                <div class="hero-slide-bg" style="background-image: url('src/images/slide3.jpg');"></div>
+                <div class="hero-slide-overlay"></div>
+                <div class="hero-slide-content">
+                    <span class="hero-tag">Compromisso Verde</span>
+                    <h1 class="hero-title">
+                        <span>Sustentabilidade</span>
+                        <span>que Transforma</span>
+                    </h1>
+                    <p class="hero-subtitle">100% madeira reciclada certified FSC. Zero desperdício. Um futuro melhor para as próximas gerações.</p>
+                    <div class="hero-buttons">
+                        <a href="#sustainability" class="btn btn-cta">Nossa Promessa</a>
+                        <a href="#about" class="btn btn-hero-outline">Saiba Mais</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-slider-nav">
+            <button class="slider-btn prev" aria-label="Slide anterior">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 18l-6-6 6-6"/>
+                </svg>
+            </button>
+            <div class="slider-dots">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+            </div>
+            <button class="slider-btn next" aria-label="Próximo slide">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 18l6-6-6-6"/>
+                </svg>
+            </button>
+        </div>
+        
+        <div class="hero-badge">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            <span>Certificação FSC</span>
+        </div>
+        
+        <div class="hero-scroll">
+            <span>Descobrir</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M5 12l7 7 7-7"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Section 3: Metrics Bar -->
+    <section id="metrics">
+        <div class="metrics-container">
+            <div class="metric-item">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+                </svg>
+                <span class="metric-value">400</span>
+                <span class="metric-label">peças/mês produzidas</span>
+            </div>
+            <div class="metric-item">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                </svg>
+                <span class="metric-value">R$ 550</span>
+                <span class="metric-label">Ticket Médio</span>
+            </div>
+            <div class="metric-item">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="4" y="4" width="16" height="16" rx="2"/>
+                    <path d="M9 9h6M9 13h6M9 17h4"/>
+                </svg>
+                <span class="metric-value">450 m²</span>
+                <span class="metric-label">de galpão</span>
+            </div>
+            <div class="metric-item">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+                <span class="metric-value">15</span>
+                <span class="metric-label">especialistas CLT</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Products -->
+    <section id="products">
+        <div class="section-header">
+            <h2>Nossa Coleção</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image">
+                    <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+                        <rect x="20" y="40" width="80" height="40" rx="2" stroke="#7B5635" stroke-width="2"/>
+                        <rect x="30" y="80" width="8" height="20" fill="#7B5635"/>
+                        <rect x="82" y="80" width="8" height="20" fill="#7B5635"/>
+                    </svg>
+                </div>
+                <span class="product-badge">FSC Certificado</span>
+                <h3 class="product-name">Mesa de Jantar Íris</h3>
+                <p class="product-price">R$ 1.890</p>
+                <button class="btn btn-secondary">Ver Peça</button>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+                        <path d="M35 90 L35 50 Q35 30 55 30 L65 30 Q85 30 85 50 L85 90" stroke="#7B5635" stroke-width="2" fill="none"/>
+                        <rect x="32" y="85" width="6" height="15" fill="#7B5635"/>
+                        <rect x="82" y="85" width="6" height="15" fill="#7B5635"/>
+                    </svg>
+                </div>
+                <span class="product-badge">FSC Certificado</span>
+                <h3 class="product-name">Cadeira Ripada Cerrado</h3>
+                <p class="product-price">R$ 540</p>
+                <button class="btn btn-secondary">Ver Peça</button>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+                        <rect x="25" y="20" width="70" height="80" rx="2" stroke="#7B5635" stroke-width="2"/>
+                        <line x1="25" y1="40" x2="95" y2="40" stroke="#7B5635" stroke-width="1"/>
+                        <line x1="25" y1="60" x2="95" y2="60" stroke="#7B5635" stroke-width="1"/>
+                        <line x1="25" y1="80" x2="95" y2="80" stroke="#7B5635" stroke-width="1"/>
+                    </svg>
+                </div>
+                <span class="product-badge">FSC Certificado</span>
+                <h3 class="product-name">Estante Modular Mata</h3>
+                <p class="product-price">R$ 2.350</p>
+                <button class="btn btn-secondary">Ver Peça</button>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+                        <rect x="25" y="70" width="70" height="15" rx="2" stroke="#7B5635" stroke-width="2"/>
+                        <rect x="20" y="85" width="8" height="20" fill="#7B5635"/>
+                        <rect x="92" y="85" width="8" height="20" fill="#7B5635"/>
+                    </svg>
+                </div>
+                <span class="product-badge">FSC Certificado</span>
+                <h3 class="product-name">Banco Trio Savana</h3>
+                <p class="product-price">R$ 590</p>
+                <button class="btn btn-secondary">Ver Peça</button>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+                        <rect x="35" y="45" width="50" height="35" rx="2" stroke="#7B5635" stroke-width="2"/>
+                        <rect x="40" y="80" width="6" height="15" fill="#7B5635"/>
+                        <rect x="74" y="80" width="6" height="15" fill="#7B5635"/>
+                    </svg>
+                </div>
+                <span class="product-badge">FSC Certificado</span>
+                <h3 class="product-name">Mesa Lateral Raiz</h3>
+                <p class="product-price">R$ 536</p>
+                <button class="btn btn-secondary">Ver Peça</button>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+                        <path d="M45 95 L45 65 Q45 40 60 40 Q75 40 75 65 L75 95" stroke="#7B5635" stroke-width="2" fill="none"/>
+                        <path d="M50 60 L55 70 M60 60 L60 70 M65 60 L70 70" stroke="#7B5635" stroke-width="1"/>
+                    </svg>
+                </div>
+                <span class="product-badge">FSC Certificado</span>
+                <h3 class="product-name">Poltrona Tronco</h3>
+                <p class="product-price">R$ 980</p>
+                <button class="btn btn-secondary">Ver Peça</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: About -->
+    <section id="about">
+        <div class="about-container">
+            <div class="about-content">
+                <div class="section-header">
+                    <h2>Feitos com Propósito</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <p class="about-text">Transformamos o descarte em design. Nossa missão é criar móveis de alta qualidade utilizando madeira reciclada certificada, combinando design premium com responsabilidade ambiental. Cada peça é única, contando a história de materiais que teriam como destino aterros sanitários.</p>
+                <p class="about-text">Produzimos em nossa unidade no SIA/SAAN, Brasília, com equipe capacitada pelo SENAI e operação CNC automatizada para garantir precisão e excelência em cada detalhe.</p>
+            </div>
+            <div class="about-pillars">
+                <div class="pillar-card">
+                    <div class="pillar-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                        </svg>
+                    </div>
+                    <h4>Operação CNC Automatizada</h4>
+                    <p>Tecnologia de ponta para precisão milimétrica</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="9" cy="21" r="1"/>
+                            <circle cx="20" cy="21" r="1"/>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                        </svg>
+                    </div>
+                    <h4>Posicionamento Premium Omnichannel</h4>
+                    <p>Presença em múltiplos canais de venda</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h4>Equipe Capacitada SENAI</h4>
+                    <p>Profissionais certificados e especializados</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+                            <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+                        </svg>
+                    </div>
+                    <h4>Crédito Verde & Certificação FSC</h4>
+                    <p>Sustentabilidade com credenciais oficiais</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: Sustainability -->
+    <section id="sustainability">
+        <div class="sustainability-background"></div>
+        <div class="sustainability-container">
+            <div class="section-header">
+                <h2>Nossa Promessa Verde</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="sustainability-blocks">
+                <div class="sustainability-block">
+                    <div class="sustainability-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+                        </svg>
+                    </div>
+                    <h3>Madeira 100% Reciclada</h3>
+                    <p>Rastreabilidade FSC completa em toda a nossa cadeia produtiva</p>
+                </div>
+                <div class="sustainability-block">
+                    <div class="sustainability-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/>
+                            <path d="M9 12h6M12 9v6"/>
+                        </svg>
+                    </div>
+                    <h3>Zero Desperdício</h3>
+                    <p>Reaproveitamento total de resíduos na produção</p>
+                </div>
+                <div class="sustainability-block">
+                    <div class="sustainability-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <h3>Certificação FSC</h3>
+                    <p>Auditoria anual e cadeia de custódia verificada</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 7: Roadmap -->
+    <section id="roadmap">
+        <div class="section-header">
+            <h2>Nossa Jornada de Crescimento</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="roadmap-timeline">
+            <div class="timeline-line"></div>
+            <div class="timeline-milestone">
+                <div class="milestone-dot"></div>
+                <div class="milestone-content">
+                    <span class="milestone-phase">Fase 1</span>
+                    <h4>Novo Galpão SIA + E-commerce</h4>
+                    <p>Mês 1–3</p>
+                </div>
+            </div>
+            <div class="timeline-milestone">
+                <div class="milestone-dot"></div>
+                <div class="milestone-content">
+                    <span class="milestone-phase">Fase 2</span>
+                    <h4>Máquinas CNC + Expansão de Equipe</h4>
+                    <p>Mês 4–6</p>
+                </div>
+            </div>
+            <div class="timeline-milestone">
+                <div class="milestone-dot"></div>
+                <div class="milestone-content">
+                    <span class="milestone-phase">Meta 1 Ano</span>
+                    <h4>Certificação FSC + R$ 150k/mês</h4>
+                    <p>Mês 12</p>
+                </div>
+            </div>
+            <div class="timeline-milestone">
+                <div class="milestone-dot"></div>
+                <div class="milestone-content">
+                    <span class="milestone-phase">Meta 2 Anos</span>
+                    <h4>400 unid/mês + R$ 2,64M/ano</h4>
+                    <p>Mês 24</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 8: Testimonials -->
+    <section id="testimonials">
+        <div class="testimonials-container">
+            <div class="testimonials-track">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"O acabamento é impeccável e saber que é sustentável faz toda diferença."</p>
+                    <div class="testimonial-author">
+                        <span class="author-name">Ana Claudia R.</span>
+                        <span class="author-role">Arquiteta</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Compramos para o escritório inteiro. A entrega e o atendimento foram perfeitos."</p>
+                    <div class="testimonial-author">
+                        <span class="author-name">Marcos V.</span>
+                        <span class="author-role">Empresário</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Design que conta uma história. Cada peça tem personalidade única."</p>
+                    <div class="testimonial-author">
+                        <span class="author-name">Fernanda S.</span>
+                        <span class="author-role">Designer de Interiores</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonials-nav">
+                <button class="nav-btn prev" aria-label="Anterior">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </button>
+                <div class="testimonials-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+                <button class="nav-btn next" aria-label="Próximo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 9: Contact CTA -->
+    <section id="contact">
+        <div class="contact-background"></div>
+        <div class="contact-content">
+            <h2>Pronto para transformar seu espaço?</h2>
+            <p>Visite nosso showroom em Brasília ou compre pelo nosso e-commerce. Entregamos em todo o Brasil.</p>
+            <div class="contact-buttons">
+                <a href="#" class="btn btn-primary">Acessar E-commerce</a>
+                <a href="#" class="btn btn-outline-dark">Ver no Mercado Livre</a>
+                <a href="#" class="btn btn-whatsapp">Falar no WhatsApp</a>
+            </div>
+            <div class="contact-address">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span>SIA Trecho 2, Lote 1580, Brasília – DF</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 10: Footer -->
+    <footer id="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="#" class="footer-logo">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+                        <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+                    </svg>
+                    <span>EcoMóveis</span>
+                </a>
+                <p class="footer-tagline">Feito com Madeira. Pensado para o Futuro.</p>
+                <div class="footer-fsc">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                    <span>Certificação FSC</span>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#about">Sobre Nós</a></li>
+                    <li><a href="#products">Produtos</a></li>
+                    <li><a href="#sustainability">Sustentabilidade</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Redes Sociais</h4>
+                <div class="social-icons">
+                    <a href="#" aria-label="Instagram">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="2" width="20" height="20" rx="5"/>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Facebook">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="LinkedIn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                            <rect x="2" y="9" width="4" height="12"/>
+                            <circle cx="4" cy="4" r="2"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 EcoMóveis Ltda. Todos os direitos reservados.</p>
+            <p class="footer-small">Madeira 100% reciclada. Produção certificada FSC.</p>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navbar scroll behavior
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // Mobile menu toggle
+            const navbarToggle = document.querySelector('.navbar-toggle');
+            const navbarLinks = document.querySelector('.navbar-links');
+            const navbarCta = document.querySelector('.navbar-cta');
+            
+            if (navbarToggle) {
+                navbarToggle.addEventListener('click', function() {
+                    navbarLinks.classList.toggle('active');
+                    navbarCta.classList.toggle('active');
+                    const isExpanded = navbarLinks.classList.contains('active');
+                    navbarToggle.setAttribute('aria-expanded', isExpanded);
+                });
+            }
+
+            // Smooth scroll for nav links
+            const navLinks = document.querySelectorAll('.navbar-links a, .navbar-cta');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href.startsWith('#')) {
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        if (target) {
+                            target.scrollIntoView({ behavior: 'smooth' });
+                            // Close mobile menu
+                            navbarLinks.classList.remove('active');
+                            navbarCta.classList.remove('active');
+                        }
+                    }
+                });
+            });
+
+            // Hero animations on load
+            const heroContent = document.querySelector('.hero-slide-content');
+            if (heroContent) {
+                heroContent.style.opacity = '0';
+                heroContent.style.transform = 'translateY(30px)';
+                heroContent.style.transition = 'all 0.8s ease';
+                
+                setTimeout(() => {
+                    heroContent.style.opacity = '1';
+                    heroContent.style.transform = 'translateY(0)';
+                }, 200);
+            }
+
+            // Hero Slider
+            const slides = document.querySelectorAll('.hero-slide');
+            const dots = document.querySelectorAll('.slider-dots .dot');
+            const prevBtn = document.querySelector('.slider-btn.prev');
+            const nextBtn = document.querySelector('.slider-btn.next');
+            
+            if (slides.length > 0) {
+                let currentSlide = 0;
+                let autoPlayInterval = null;
+                const SLIDE_DURATION = 5000;
+                
+                function goToSlide(index) {
+                    if (index < 0) index = slides.length - 1;
+                    if (index >= slides.length) index = 0;
+                    
+                    slides.forEach((slide, i) => {
+                        if (i === index) {
+                            slide.classList.add('active');
+                        } else {
+                            slide.classList.remove('active');
+                        }
+                    });
+                    
+                    dots.forEach((dot, i) => {
+                        if (i === index) {
+                            dot.classList.add('active');
+                        } else {
+                            dot.classList.remove('active');
+                        }
+                    });
+                    
+                    currentSlide = index;
+                    
+                    const content = slides[index].querySelector('.hero-slide-content');
+                    if (content) {
+                        content.style.opacity = '0';
+                        content.style.transform = 'translateY(30px)';
+                        setTimeout(() => {
+                            content.style.opacity = '1';
+                            content.style.transform = 'translateY(0)';
+                        }, 300);
+                    }
+                }
+                
+                function nextSlide() {
+                    goToSlide(currentSlide + 1);
+                }
+                
+                function prevSlide() {
+                    goToSlide(currentSlide - 1);
+                }
+                
+                function startAutoPlay() {
+                    stopAutoPlay();
+                    autoPlayInterval = setInterval(nextSlide, SLIDE_DURATION);
+                }
+                
+                function stopAutoPlay() {
+                    if (autoPlayInterval) {
+                        clearInterval(autoPlayInterval);
+                        autoPlayInterval = null;
+                    }
+                }
+                
+                goToSlide(0);
+                startAutoPlay();
+                
+                if (nextBtn) {
+                    nextBtn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        stopAutoPlay();
+                        nextSlide();
+                        startAutoPlay();
+                    });
+                }
+                
+                if (prevBtn) {
+                    prevBtn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        stopAutoPlay();
+                        prevSlide();
+                        startAutoPlay();
+                    });
+                }
+                
+                dots.forEach((dot, index) => {
+                    dot.addEventListener('click', function() {
+                        stopAutoPlay();
+                        goToSlide(index);
+                        startAutoPlay();
+                    });
+                });
+                
+                const heroSection = document.getElementById('hero');
+                if (heroSection) {
+                    heroSection.addEventListener('mouseenter', stopAutoPlay);
+                    heroSection.addEventListener('mouseleave', startAutoPlay);
+                }
+            }
+
+            // IntersectionObserver for scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const animationObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        animationObserver.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all animated elements
+            const animatedElements = document.querySelectorAll('.fade-in, .slide-up, .slide-left, .slide-right, .scale-in');
+            animatedElements.forEach(el => animationObserver.observe(el));
+
+            // Metrics counter animation
+            const metricsSection = document.getElementById('metrics');
+            let metricsAnimated = false;
+            
+            const metricValues = [
+                { element: document.querySelector('.metric-item:nth-child(1) .metric-value'), target: 400, prefix: '', suffix: '' },
+                { element: document.querySelector('.metric-item:nth-child(2) .metric-value'), target: 550, prefix: 'R$ ', suffix: '' },
+                { element: document.querySelector('.metric-item:nth-child(3) .metric-value'), target: 450, prefix: '', suffix: ' m²' },
+                { element: document.querySelector('.metric-item:nth-child(4) .metric-value'), target: 15, prefix: '', suffix: '' }
+            ];
+
+            const metricsObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !metricsAnimated) {
+                        metricsAnimated = true;
+                        animateCounters();
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            if (metricsSection) {
+                metricsObserver.observe(metricsSection);
+            }
+
+            function animateCounters() {
+                metricValues.forEach((item, index) => {
+                    if (item.element) {
+                        const duration = 2000;
+                        const startTime = performance.now();
+                        const target = item.target;
+                        
+                        function updateCounter(currentTime) {
+                            const elapsed = currentTime - startTime;
+                            const progress = Math.min(elapsed / duration, 1);
+                            const easeOut = 1 - Math.pow(1 - progress, 3);
+                            const current = Math.floor(target * easeOut);
+                            
+                            item.element.textContent = item.prefix + current + item.suffix;
+                            
+                            if (progress < 1) {
+                                requestAnimationFrame(updateCounter);
+                            }
+                        }
+                        
+                        setTimeout(() => {
+                            requestAnimationFrame(updateCounter);
+                        }, index * 200);
+                    }
+                });
+            }
+
+            // Product cards staggered animation
+            const productCards = document.querySelectorAll('.product-card');
+            productCards.forEach((card, index) => {
+                card.classList.add('fade-in', 'slide-up');
+                card.style.transitionDelay = `${index * 100}ms`;
+                animationObserver.observe(card);
+            });
+
+            // About section animation
+            const aboutContent = document.querySelector('.about-content');
+            if (aboutContent) {
+                aboutContent.classList.add('slide-left');
+                animationObserver.observe(aboutContent);
+            }
+
+            const pillarCards = document.querySelectorAll('.pillar-card');
+            pillarCards.forEach((card, index) => {
+                card.classList.add('slide-right');
+                card.style.transitionDelay = `${index * 150}ms`;
+                animationObserver.observe(card);
+            });
+
+            // Sustainability blocks animation
+            const sustainabilityBlocks = document.querySelectorAll('.sustainability-block');
+            sustainabilityBlocks.forEach((block, index) => {
+                block.classList.add('scale-in');
+                block.style.transitionDelay = `${index * 200}ms`;
+                animationObserver.observe(block);
+            });
+
+            // Roadmap timeline animation
+            const roadmapSection = document.getElementById('roadmap');
+            const timelineLine = document.querySelector('.timeline-line');
+            
+            if (roadmapSection && timelineLine) {
+                const roadmapObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            timelineLine.style.transition = 'width 1.5s ease-out';
+                            timelineLine.style.width = '100%';
+                            roadmapObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.3 });
+                
+                roadmapObserver.observe(roadmapSection);
+            }
+
+            // Testimonial carousel
+            const testimonialsSection = document.getElementById('testimonials');
+            const track = document.querySelector('.testimonials-track');
+            const cards = document.querySelectorAll('.testimonial-card');
+            const tPrevBtn = document.querySelector('.nav-btn.prev');
+            const tNextBtn = document.querySelector('.nav-btn.next');
+            const tDots = document.querySelectorAll('.testimonials-dots .dot');
+            
+            let currentIndex = 0;
+            let autoPlayInterval;
+            const totalCards = cards.length;
+            
+            function updateCarousel() {
+                if (track && cards.length > 0) {
+                    const cardWidth = cards[0].offsetWidth + 32; // card + gap
+                    track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+                    
+                    // Update dots
+                    dots.forEach((dot, index) => {
+                        dot.classList.toggle('active', index === currentIndex);
+                    });
+                }
+            }
+            
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % totalCards;
+                updateCarousel();
+            }
+            
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+                updateCarousel();
+            }
+            
+            function goToSlide(index) {
+                currentIndex = index;
+                updateCarousel();
+            }
+            
+            function startAutoPlay() {
+                autoPlayInterval = setInterval(nextSlide, 5000);
+            }
+            
+            function stopAutoPlay() {
+                clearInterval(autoPlayInterval);
+            }
+            
+            // Navigation buttons
+            if (tNextBtn) {
+                tNextBtn.addEventListener('click', function() {
+                    stopAutoPlay();
+                    nextSlide();
+                    startAutoPlay();
+                });
+            }
+            
+            if (tPrevBtn) {
+                tPrevBtn.addEventListener('click', function() {
+                    stopAutoPlay();
+                    prevSlide();
+                    startAutoPlay();
+                });
+            }
+            
+            // Dot navigation
+            tDots.forEach((dot, index) => {
+                dot.addEventListener('click', function() {
+                    stopAutoPlay();
+                    goToSlide(index);
+                    startAutoPlay();
+                });
+            });
+            
+            // Pause on hover
+            if (testimonialsSection) {
+                testimonialsSection.addEventListener('mouseenter', stopAutoPlay);
+                testimonialsSection.addEventListener('mouseleave', startAutoPlay);
+            }
+            
+            // Start auto-play
+            startAutoPlay();
+            
+            // Contact form prevention (if exists)
+            const contactForm = document.querySelector('#contact form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Obrigado! Em breve entraremos em contato.');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

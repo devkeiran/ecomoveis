@@ -1,0 +1,7 @@
+.git/
+node_modules/
+.opencode/
+.sisyphus/
+v2.html
+.DS_Store
+Thumbs.db
