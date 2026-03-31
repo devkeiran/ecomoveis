@@ -311,12 +311,12 @@
             height: 100%;
             background-size: cover;
             background-position: center;
-            animation: heroZoom 20s ease-in-out infinite alternate;
+            animation: heroZoom 25s ease-in-out infinite alternate;
         }
 
         @keyframes heroZoom {
             0% { transform: scale(1); }
-            100% { transform: scale(1.05); }
+            100% { transform: scale(1.15); }
         }
 
         .hero-slide-overlay {
@@ -463,6 +463,26 @@
         .slider-btn:hover {
             background: rgba(255, 255, 255, 0.2);
             transform: scale(1.1);
+        }
+
+        .slider-btn.pause-btn {
+            margin-left: 0.5rem;
+        }
+
+        .slider-btn.pause-btn.playing .pause-icon {
+            display: block;
+        }
+
+        .slider-btn.pause-btn.playing .play-icon {
+            display: none;
+        }
+
+        .slider-btn.pause-btn:not(.playing) .pause-icon {
+            display: none;
+        }
+
+        .slider-btn.pause-btn:not(.playing) .play-icon {
+            display: block;
         }
 
         .slider-dots {
@@ -1458,6 +1478,15 @@
                     <path d="M9 18l6-6-6-6"/>
                 </svg>
             </button>
+            <button class="slider-btn pause-btn" aria-label="Pausar slide" id="pauseBtn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="pause-icon">
+                    <rect x="6" y="4" width="4" height="16"/>
+                    <rect x="14" y="4" width="4" height="16"/>
+                </svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="play-icon" style="display: none;">
+                    <polygon points="5 3 19 12 5 21 5 3"/>
+                </svg>
+            </button>
         </div>
         
         <div class="hero-badge">
@@ -1928,11 +1957,13 @@
             const dots = document.querySelectorAll('.slider-dots .dot');
             const prevBtn = document.querySelector('.slider-btn.prev');
             const nextBtn = document.querySelector('.slider-btn.next');
+            const pauseBtn = document.getElementById('pauseBtn');
             
             if (slides.length > 0) {
                 let currentSlide = 0;
                 let autoPlayInterval = null;
-                const SLIDE_DURATION = 5000;
+                let isPaused = false;
+                const SLIDE_DURATION = 7000;
                 
                 function goToSlide(index) {
                     if (index < 0) index = slides.length - 1;
@@ -1987,15 +2018,27 @@
                     }
                 }
                 
+                function togglePause() {
+                    isPaused = !isPaused;
+                    if (isPaused) {
+                        stopAutoPlay();
+                        pauseBtn.classList.remove('playing');
+                    } else {
+                        startAutoPlay();
+                        pauseBtn.classList.add('playing');
+                    }
+                }
+                
                 goToSlide(0);
                 startAutoPlay();
+                pauseBtn.classList.add('playing');
                 
                 if (nextBtn) {
                     nextBtn.addEventListener('click', function(e) {
                         e.preventDefault();
                         stopAutoPlay();
                         nextSlide();
-                        startAutoPlay();
+                        if (!isPaused) startAutoPlay();
                     });
                 }
                 
@@ -2004,7 +2047,7 @@
                         e.preventDefault();
                         stopAutoPlay();
                         prevSlide();
-                        startAutoPlay();
+                        if (!isPaused) startAutoPlay();
                     });
                 }
                 
@@ -2012,14 +2055,16 @@
                     dot.addEventListener('click', function() {
                         stopAutoPlay();
                         goToSlide(index);
-                        startAutoPlay();
+                        if (!isPaused) startAutoPlay();
                     });
                 });
                 
-                const heroSection = document.getElementById('hero');
-                if (heroSection) {
-                    heroSection.addEventListener('mouseenter', stopAutoPlay);
-                    heroSection.addEventListener('mouseleave', startAutoPlay);
+                // Pause button click handler
+                if (pauseBtn) {
+                    pauseBtn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        togglePause();
+                    });
                 }
             }
 
