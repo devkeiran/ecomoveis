@@ -6,7 +6,7 @@
     <title>EcoMóveis - Móveis de Madeira Reciclada Certificada FSC</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <style>
         :root {
@@ -17,7 +17,7 @@
             --color-bg: #FAF7F2;
             --color-text: #2C2C2C;
             --color-white: #FFFFFF;
-            --font-heading: 'Cormorant Garamond', serif;
+            --font-heading: 'Outfit', sans-serif;
             --font-body: 'Inter', sans-serif;
             --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -752,6 +752,11 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .product-image img.img-contain {
+            object-fit: contain;
+            padding: 2.5rem;
         }
 
         .product-info {
@@ -2040,7 +2045,7 @@
         <div class="products-grid">
             <div class="product-card" onclick="openProductModal('src/images/collection/p1.png', 'Mesa Extensível Ipê', 'R$ 1.890', 'Mesa extensível em madeira maciça reciclada com certificação FSC. Tampo com linhas puras e pés torneados que remetem ao design escandinavo. Ideal para jantares de 6 a 10 pessoas. Dimensões: 180x90cm (extensível até 240cm).', 'Madeira Ipê Reciclada', '180 × 90 × 76 cm', 'Artesanal')">
                 <div class="product-image">
-                    <img src="src/images/collection/p1.png" alt="Mesa Extensível Ipê">
+                    <img src="src/images/collection/p1.png" alt="Mesa Extensível Ipê" class="img-contain">
                 </div>
                 <span class="product-badge">Exclusivo</span>
                 <div class="product-info">
@@ -2851,7 +2856,7 @@
                 imgEl.src = imageSrc;
                 imgEl.alt = name;
                 
-                if (name === "Mesa Extensível Ipê" || name === "Mesa de Centro Mandacaru") {
+                if (name === "Mesa Extensível Ipê" || name === "Mesa de Centro Mandacaru" || name === "Buffet Autoral Jatobá" || name === "Escrivaninha Viva Mogno") {
                     imgEl.classList.add('no-zoom');
                 } else {
                     imgEl.classList.remove('no-zoom');
