@@ -6,7 +6,7 @@
     <title>EcoMóveis - Móveis de Madeira Reciclada Certificada FSC</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <style>
         :root {
@@ -14,12 +14,12 @@
             --color-accent: #2D6A4F;
             --color-wood-light: #C8A96E;
             --color-wood-dark: #7B5635;
-            --color-bg: #F5F0E8;
-            --color-text: #1A1A1A;
+            --color-bg: #FAF7F2;
+            --color-text: #2C2C2C;
             --color-white: #FFFFFF;
-            --font-heading: 'Playfair Display', serif;
+            --font-heading: 'Cormorant Garamond', serif;
             --font-body: 'Inter', sans-serif;
-            --transition: 0.3s ease;
+            --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         *, *::before, *::after {
@@ -34,22 +34,27 @@
 
         body {
             font-family: var(--font-body);
-            line-height: 1.6;
+            line-height: 1.7;
             color: var(--color-text);
             background-color: var(--color-bg);
             overflow-x: hidden;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            letter-spacing: 0.01em;
         }
 
         h1, h2, h3, h4, h5, h6 {
             font-family: var(--font-heading);
             font-weight: 600;
-            line-height: 1.2;
+            line-height: 1.15;
+            letter-spacing: 0.02em;
         }
 
-        h1 { font-size: 4rem; }
-        h2 { font-size: 2.5rem; }
-        h3 { font-size: 1.5rem; }
-        h4 { font-size: 1.25rem; }
+        h1 { font-size: 4.5rem; font-weight: 700; }
+        h2 { font-size: 2.75rem; }
+        h3 { font-size: 1.6rem; }
+        h4 { font-size: 1.3rem; }
 
         a {
             text-decoration: none;
@@ -68,20 +73,29 @@
 
         .section-header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
         }
 
         .section-header h2 {
             color: var(--color-primary);
-            margin-bottom: 1rem;
+            margin-bottom: 1.25rem;
+            letter-spacing: 0.03em;
+        }
+
+        .section-header p {
+            font-size: 1.05rem;
+            color: #6B6B6B;
+            max-width: 540px;
+            margin: 0 auto;
+            line-height: 1.7;
         }
 
         .section-divider {
-            width: 80px;
-            height: 4px;
+            width: 60px;
+            height: 2px;
             background: linear-gradient(90deg, var(--color-wood-dark), var(--color-wood-light));
             margin: 0 auto;
-            border-radius: 2px;
+            border-radius: 1px;
         }
 
         .btn {
@@ -239,18 +253,22 @@
         }
 
         .navbar-cta {
-            padding: 10px 24px;
-            background: rgba(255, 255, 255, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 8px 24px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.4);
             color: var(--color-white);
-            border-radius: 6px;
+            border-radius: 2px;
             font-weight: 500;
-            font-size: 0.9rem;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
             transition: all 0.4s ease;
+            font-family: var(--font-body);
         }
 
         .navbar-cta:hover {
-            background: rgba(255, 255, 255, 0.25);
+            background: var(--color-white);
+            color: var(--color-primary);
             border-color: var(--color-white);
         }
 
@@ -324,7 +342,7 @@
             inset: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(ellipse at 30% 50%, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.75) 70%);
+            background: linear-gradient(135deg, rgba(15,25,18,0.65) 0%, rgba(0,0,0,0.35) 40%, rgba(0,0,0,0.7) 100%);
             z-index: 1;
         }
 
@@ -342,16 +360,17 @@
 
         .hero-tag {
             display: inline-block;
-            padding: 10px 24px;
-            border-radius: 4px;
-            font-size: 0.75rem;
+            padding: 8px 20px;
+            border-radius: 2px;
+            font-size: 0.7rem;
             font-weight: 600;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             text-transform: uppercase;
             color: var(--color-wood-light);
-            background: rgba(200, 169, 110, 0.15);
-            border: 1px solid rgba(200, 169, 110, 0.3);
+            background: transparent;
+            border: 1px solid rgba(200, 169, 110, 0.4);
             margin-bottom: 2rem;
+            font-family: var(--font-body);
         }
 
         .hero-title {
@@ -363,7 +382,7 @@
             display: flex;
             flex-direction: column;
             gap: 0.25rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-shadow: 0 4px 24px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.8);
             letter-spacing: 1px;
             min-height: 4.5rem;
             align-items: flex-start;
@@ -374,12 +393,15 @@
         }
 
         .hero-subtitle {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1rem;
-            line-height: 1.7;
-            margin-bottom: 2rem;
-            max-width: 520px;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            max-width: 480px;
             min-height: 3rem;
+            font-weight: 300;
+            letter-spacing: 0.02em;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
         }
 
         .hero-buttons {
@@ -389,36 +411,43 @@
         }
 
         .btn-cta {
-            background: linear-gradient(135deg, #E85D04 0%, #DC2F02 100%);
-            color: var(--color-white);
-            padding: 16px 36px;
-            border-radius: 50px;
+            background: var(--color-white);
+            color: var(--color-primary);
+            padding: 16px 40px;
+            border-radius: 2px;
             font-weight: 600;
-            font-size: 0.95rem;
-            letter-spacing: 0.5px;
-            box-shadow: 0 8px 30px rgba(232, 93, 4, 0.35);
-            transition: all 0.3s ease;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            box-shadow: none;
+            transition: all 0.4s ease;
+            font-family: var(--font-body);
         }
 
         .btn-cta:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(232, 93, 4, 0.45);
+            background: var(--color-wood-light);
+            color: var(--color-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
         }
 
         .btn-hero-outline {
             background: transparent;
             color: var(--color-white);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            padding: 16px 36px;
-            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            padding: 16px 40px;
+            border-radius: 2px;
             font-weight: 500;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+            font-family: var(--font-body);
         }
 
         .btn-hero-outline:hover {
             background: rgba(255, 255, 255, 0.1);
-            border-color: var(--color-white);
+            border-color: rgba(255, 255, 255, 0.6);
         }
 
         .hero-bottom-elements {
@@ -540,18 +569,6 @@
         .slider-dots .dot:hover {
             background: rgba(255, 255, 255, 0.6);
         }
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(20px);
-            border-radius: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        .hero-badge svg {
-            color: var(--color-wood-light);
-        }
 
         .hero-scroll {
             position: absolute;
@@ -667,58 +684,65 @@
 
         /* Products Section */
         #products {
-            padding: 5rem 2rem;
+            padding: 6rem 2rem;
             background: var(--color-bg);
         }
 
         .products-grid {
-            max-width: 1200px;
+            max-width: 1260px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
         .product-card {
-            background: linear-gradient(145deg, #F5F0E8 0%, #E8DFD0 100%);
-            border-radius: 16px;
-            padding: 1.5rem;
-            text-align: center;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: var(--color-white);
+            border-radius: 4px;
+            padding: 0;
+            text-align: left;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(123, 86, 53, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            cursor: pointer;
         }
 
         .product-card::before {
             content: '';
             position: absolute;
-            top: 0;
+            bottom: 0;
             left: 0;
             right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--color-wood-dark), var(--color-wood-light));
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-wood-light));
             transform: scaleX(0);
-            transition: transform 0.4s ease;
+            transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            z-index: 2;
         }
 
         .product-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 25px 50px rgba(27, 67, 50, 0.2);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border-color: transparent;
         }
 
         .product-card:hover::before {
             transform: scaleX(1);
         }
 
+        .product-card:hover .product-image img {
+            transform: scale(1.06);
+        }
+
         .product-image {
-            height: 180px;
+            height: 280px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, rgba(123, 86, 53, 0.05) 0%, rgba(200, 169, 110, 0.1) 100%);
-            border-radius: 12px;
+            margin-bottom: 0;
+            background: #F8F5F0;
+            border-radius: 0;
             transition: var(--transition);
             overflow: hidden;
         }
@@ -726,33 +750,101 @@
         .product-image img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
-            transition: none;
+            object-fit: cover;
+            transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .product-info {
+            padding: 1.5rem 1.75rem 1.75rem;
         }
 
         .product-badge {
             position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: var(--color-primary);
+            top: 1.25rem;
+            left: 1.25rem;
+            background: rgba(27, 67, 50, 0.9);
             color: var(--color-white);
-            font-size: 0.75rem;
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-weight: 500;
+            font-size: 0.65rem;
+            padding: 5px 12px;
+            border-radius: 2px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            backdrop-filter: blur(4px);
+            z-index: 2;
+        }
+
+        .product-collection {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--color-wood-dark);
+            margin-bottom: 0.4rem;
+            display: block;
         }
 
         .product-name {
             color: var(--color-text);
-            margin-bottom: 0.5rem;
-            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.4rem;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+            line-height: 1.3;
+        }
+
+        .product-price-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto;
         }
 
         .product-price {
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-size: 1.25rem;
+            font-weight: 600;
             color: var(--color-primary);
-            margin-bottom: 1rem;
+            margin-bottom: 0;
+            font-family: var(--font-body);
+        }
+
+        .product-price small {
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: #999;
+            display: block;
+            margin-top: 2px;
+        }
+
+        .btn-view-product {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: transparent;
+            color: var(--color-primary);
+            padding: 10px 0;
+            border-radius: 0;
+            font-weight: 500;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.35s ease;
+            border: none;
+            cursor: pointer;
+            font-family: var(--font-body);
+        }
+
+        .btn-view-product::after {
+            content: '→';
+            transition: transform 0.35s ease;
+        }
+
+        .btn-view-product:hover {
+            color: var(--color-wood-dark);
+        }
+
+        .btn-view-product:hover::after {
+            transform: translateX(4px);
         }
 
         /* About Section */
@@ -1432,15 +1524,15 @@
         .product-modal-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(8px);
+            background: rgba(15, 15, 15, 0.85);
+            backdrop-filter: blur(12px);
             z-index: 2000;
             display: flex;
             align-items: center;
             justify-content: center;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             padding: 2rem;
         }
 
@@ -1451,50 +1543,50 @@
 
         .product-modal {
             background: var(--color-white);
-            border-radius: 20px;
-            max-width: 900px;
+            border-radius: 4px;
+            max-width: 960px;
             width: 100%;
             max-height: 90vh;
             overflow-y: auto;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            transform: scale(0.9);
-            transition: transform 0.3s ease;
-            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
+            grid-template-columns: 1.1fr 1fr;
+            transform: translateY(20px) scale(0.98);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
         }
 
         .product-modal-overlay.active .product-modal {
-            transform: scale(1);
+            transform: translateY(0) scale(1);
         }
 
         .product-modal-image {
             position: relative;
             overflow: hidden;
-            border-radius: 20px 0 0 20px;
+            border-radius: 4px 0 0 4px;
         }
 
         .product-modal-image img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
-            min-height: 400px;
-            background: #f5f0e8;
+            object-fit: cover;
+            min-height: 480px;
+            background: #F8F5F0;
         }
 
         .product-modal-content {
-            padding: 2.5rem;
+            padding: 3rem;
             display: flex;
             flex-direction: column;
         }
 
         .product-modal-close {
             position: absolute;
-            top: 1rem;
-            right: 1rem;
-            width: 40px;
-            height: 40px;
+            top: 1.25rem;
+            right: 1.25rem;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             border: none;
             cursor: pointer;
             display: flex;
@@ -1502,132 +1594,273 @@
             justify-content: center;
             transition: all 0.3s ease;
             z-index: 10;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.1);
         }
 
         .product-modal-close:hover {
             background: var(--color-white);
-            transform: scale(1.1);
+            transform: rotate(90deg);
         }
 
         .product-modal-badge {
             display: inline-block;
-            padding: 6px 14px;
-            background: var(--color-primary);
-            color: var(--color-white);
-            font-size: 0.75rem;
+            padding: 5px 14px;
+            background: transparent;
+            color: var(--color-primary);
+            font-size: 0.65rem;
             font-weight: 600;
-            border-radius: 20px;
-            margin-bottom: 1rem;
+            border-radius: 2px;
+            margin-bottom: 1.25rem;
             width: fit-content;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: 1px solid var(--color-primary);
         }
 
         .product-modal-title {
             font-family: var(--font-heading);
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: var(--color-primary);
             margin-bottom: 0.5rem;
+            line-height: 1.2;
         }
 
         .product-modal-price {
-            font-size: 2.5rem;
-            font-weight: 700;
+            font-size: 1.75rem;
+            font-weight: 600;
             color: var(--color-wood-dark);
             margin-bottom: 1.5rem;
+            font-family: var(--font-body);
+        }
+
+        .product-modal-price small {
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: #999;
         }
 
         .product-modal-description {
-            color: var(--color-text);
-            font-size: 1rem;
-            line-height: 1.7;
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-modal-details {
+            display: flex;
+            gap: 2rem;
+            padding: 1.25rem 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
             margin-bottom: 2rem;
-            opacity: 0.85;
+        }
+
+        .product-modal-detail {
+            flex: 1;
+        }
+
+        .product-modal-detail span {
+            display: block;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #999;
+            margin-bottom: 0.25rem;
+        }
+
+        .product-modal-detail strong {
+            font-size: 0.9rem;
+            color: var(--color-text);
+            font-weight: 500;
         }
 
         .product-modal-actions {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 0.75rem;
             margin-top: auto;
         }
 
         .btn-buy {
-            background: linear-gradient(135deg, #E85D04 0%, #DC2F02 100%);
+            background: var(--color-primary);
             color: var(--color-white);
-            padding: 18px 36px;
-            border-radius: 50px;
+            padding: 16px 36px;
+            border-radius: 2px;
             font-weight: 600;
-            font-size: 1.1rem;
-            letter-spacing: 0.5px;
-            box-shadow: 0 8px 30px rgba(232, 93, 4, 0.35);
-            transition: all 0.3s ease;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            box-shadow: none;
+            transition: all 0.35s ease;
             border: none;
             cursor: pointer;
             width: 100%;
+            font-family: var(--font-body);
         }
 
         .btn-buy:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(232, 93, 4, 0.45);
+            background: var(--color-accent);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(27, 67, 50, 0.3);
         }
 
         .btn-customize {
-            background: var(--color-primary);
-            color: var(--color-white);
-            padding: 18px 36px;
-            border-radius: 50px;
+            background: transparent;
+            color: var(--color-primary);
+            padding: 16px 36px;
+            border-radius: 2px;
             font-weight: 600;
-            font-size: 1.1rem;
-            letter-spacing: 0.5px;
-            transition: all 0.3s ease;
-            border: 2px solid var(--color-primary);
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.35s ease;
+            border: 1.5px solid var(--color-primary);
             cursor: pointer;
             width: 100%;
+            font-family: var(--font-body);
         }
 
         .btn-customize:hover {
-            background: var(--color-accent);
-            border-color: var(--color-accent);
+            background: var(--color-primary);
+            color: var(--color-white);
         }
 
         .btn-back {
             background: transparent;
-            color: var(--color-text);
-            padding: 12px 24px;
+            color: #999;
+            padding: 10px 24px;
             font-weight: 500;
-            font-size: 0.95rem;
+            font-size: 0.8rem;
             border: none;
             cursor: pointer;
             transition: all 0.3s ease;
             width: 100%;
             text-align: center;
+            letter-spacing: 0.5px;
         }
 
         .btn-back:hover {
-            color: var(--color-primary);
-            text-decoration: underline;
+            color: var(--color-text);
         }
 
         @media (max-width: 768px) {
             .product-modal {
                 grid-template-columns: 1fr;
-                border-radius: 20px;
+                border-radius: 4px;
             }
 
             .product-modal-image {
-                border-radius: 20px 20px 0 0;
-                height: 250px;
+                border-radius: 4px 4px 0 0;
+                height: 280px;
             }
 
             .product-modal-content {
-                padding: 1.5rem;
+                padding: 1.75rem;
             }
 
             .product-modal-title {
-                font-size: 1.5rem;
+                font-size: 1.6rem;
             }
 
             .product-modal-price {
-                font-size: 2rem;
+                font-size: 1.5rem;
+            }
+
+            .product-modal-details {
+                gap: 1rem;
+            }
+        }
+
+        /* PDF Presentation Modal */
+        .pdf-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(12px);
+            z-index: 3000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 2rem;
+        }
+
+        .pdf-modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .pdf-modal-header {
+            width: 100%;
+            max-width: 1000px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            color: var(--color-white);
+        }
+
+        .pdf-modal-title {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .pdf-controls {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .pdf-control-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--color-white);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .pdf-control-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: scale(1.05);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .pdf-container {
+            width: 100%;
+            max-width: 1000px;
+            height: 80vh;
+            background: transparent;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .pdf-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: transparent;
+        }
+
+        @media (max-width: 768px) {
+            .pdf-modal-overlay {
+                padding: 1rem;
+            }
+            .pdf-container {
+                height: 70vh;
             }
         }
     </style>
@@ -1647,6 +1880,7 @@
                 <li><a href="#about">Sobre</a></li>
                 <li><a href="#products">Produtos</a></li>
                 <li><a href="#sustainability">Sustentabilidade</a></li>
+                <li><a href="#" onclick="openPdfModal(event)">O Plano</a></li>
                 <li><a href="#contact">Contato</a></li>
             </ul>
             <a href="#products" class="navbar-cta">Ver Coleção</a>
@@ -1792,63 +2026,94 @@
     <!-- Section 4: Products -->
     <section id="products">
         <div class="section-header">
-            <h2>Nossa Coleção</h2>
+            <h2>Coleção Autoral</h2>
             <div class="section-divider"></div>
+            <p>Peças exclusivas onde a natureza encontra o design contemporâneo</p>
         </div>
         <div class="products-grid">
-            <div class="product-card">
+            <div class="product-card" onclick="openProductModal('src/images/collection/p1.png', 'Mesa Extensível Ipê', 'R$ 1.890', 'Mesa extensível em madeira maciça reciclada com certificação FSC. Tampo com linhas puras e pés torneados que remetem ao design escandinavo. Ideal para jantares de 6 a 10 pessoas. Dimensões: 180x90cm (extensível até 240cm).', 'Madeira Ipê Reciclada', '180 × 90 × 76 cm', 'Artesanal')">
                 <div class="product-image">
-                    <img src="src/images/collection/p1.png" alt="Mesa de Jantar Íris" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+                    <img src="src/images/collection/p1.png" alt="Mesa Extensível Ipê">
                 </div>
-                <span class="product-badge">FSC Certificado</span>
-                <h3 class="product-name">Mesa de Jantar Íris</h3>
-                <p class="product-price">R$ 1.890</p>
-                <button class="btn btn-secondary" onclick="openProductModal('src/images/collection/p1.png', 'Mesa de Jantar Íris', 'R$ 1.890', 'Mesa de jantar elegante feita com madeira reciclada certificada FSC. Design contemporâneo com acabamento premium, perfeito para ambientes de alto padrão. Dimensões: 180x90cm.')">Ver Peça</button>
+                <span class="product-badge">Exclusivo</span>
+                <div class="product-info">
+                    <span class="product-collection">Linha Essência</span>
+                    <h3 class="product-name">Mesa Extensível Ipê</h3>
+                    <div class="product-price-row">
+                        <p class="product-price">R$ 1.890 <small>em até 12x</small></p>
+                        <button class="btn-view-product">Ver</button>
+                    </div>
+                </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" onclick="openProductModal('src/images/collection/p2.png', 'Cama Suspensa Aroeira', 'R$ 3.450', 'Cama de casal em madeira maciça reciclada com cabeceira integrada e criado-mudo flutuante. A robustez da Aroeira encontra o minimalismo contemporâneo. Estrutura flutuante que transmite leveza visual. Dimensões: 210x180cm.', 'Madeira Aroeira Reciclada', '210 × 180 × 85 cm', 'Sob Medida')">
                 <div class="product-image">
-                    <img src="src/images/collection/p2.png" alt="Cadeira Ripada Cerrado" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+                    <img src="src/images/collection/p2.png" alt="Cama Suspensa Aroeira">
                 </div>
-                <span class="product-badge">FSC Certificado</span>
-                <h3 class="product-name">Cadeira Ripada Cerrado</h3>
-                <p class="product-price">R$ 540</p>
-                <button class="btn btn-secondary" onclick="openProductModal('src/images/collection/p2.png', 'Cadeira Ripada Cerrado', 'R$ 540', 'CadeiraRipada comdesign único, construída com madeira reciclada certificada. Estrutura robusta com acabamento refinado, ideal para ambientes internos e externos protegidos.')">Ver Peça</button>
+                <span class="product-badge">Novo</span>
+                <div class="product-info">
+                    <span class="product-collection">Linha Repouso</span>
+                    <h3 class="product-name">Cama Suspensa Aroeira</h3>
+                    <div class="product-price-row">
+                        <p class="product-price">R$ 3.450 <small>em até 12x</small></p>
+                        <button class="btn-view-product">Ver</button>
+                    </div>
+                </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" onclick="openProductModal('src/images/collection/p3.png', 'Buffet Autoral Jatobá', 'R$ 2.350', 'Buffet em madeira rústica reciclada com três portas e base em aço carbono preto. Os veios naturais do Jatobá tornam cada peça irrepetível. Perfeito para salas de jantar e livings de alto padrão. Dimensões: 160x45x70cm.', 'Jatobá Reciclado + Aço', '160 × 45 × 70 cm', 'Artesanal')">
                 <div class="product-image">
-                    <img src="src/images/collection/p3.png" alt="Estante Modular Mata" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+                    <img src="src/images/collection/p3.png" alt="Buffet Autoral Jatobá">
                 </div>
-                <span class="product-badge">FSC Certificado</span>
-                <h3 class="product-name">Estante Modular Mata</h3>
-                <p class="product-price">R$ 2.350</p>
-                <button class="btn btn-secondary" onclick="openProductModal('src/images/collection/p3.png', 'Estante Modular Mata', 'R$ 2.350', 'Estante modular multifuncional em madeira reciclada certificada. Design moderno com módulos ajustáveis, perfeita para organizar e_decorar qualquer ambiente.')">Ver Peça</button>
+                <span class="product-badge">Destaque</span>
+                <div class="product-info">
+                    <span class="product-collection">Linha Raízes</span>
+                    <h3 class="product-name">Buffet Autoral Jatobá</h3>
+                    <div class="product-price-row">
+                        <p class="product-price">R$ 2.350 <small>em até 12x</small></p>
+                        <button class="btn-view-product">Ver</button>
+                    </div>
+                </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" onclick="openProductModal('src/images/collection/p4.png', 'Poltrona Curva Cedro', 'R$ 1.280', 'Poltrona de braços em madeira curvada com assento estofado em linho natural. Ergonomia refinada que abraça o corpo. Estrutura em Cedro reciclado com acabamento acetinado. Ideal para leitura e ambientes de estar.', 'Cedro Reciclado + Linho', '65 × 62 × 80 cm', 'Artesanal')">
                 <div class="product-image">
-                    <img src="src/images/collection/p4.png" alt="Banco Trio Savana" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+                    <img src="src/images/collection/p4.png" alt="Poltrona Curva Cedro">
                 </div>
-                <span class="product-badge">FSC Certificado</span>
-                <h3 class="product-name">Banco Trio Savana</h3>
-                <p class="product-price">R$ 590</p>
-                <button class="btn btn-secondary" onclick="openProductModal('src/images/collection/p4.png', 'Banco Trio Savana', 'R$ 590', 'Conjunto de três bancos em madeira reciclada certificada com design orgânico. Acabamento natural que destaca a beleza da madeira.recyclada.')">Ver Peça</button>
+                <span class="product-badge">Exclusivo</span>
+                <div class="product-info">
+                    <span class="product-collection">Linha Aconchego</span>
+                    <h3 class="product-name">Poltrona Curva Cedro</h3>
+                    <div class="product-price-row">
+                        <p class="product-price">R$ 1.280 <small>em até 12x</small></p>
+                        <button class="btn-view-product">Ver</button>
+                    </div>
+                </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" onclick="openProductModal('src/images/collection/p5.png', 'Escrivaninha Viva Mogno', 'R$ 2.190', 'Escrivaninha com borda orgânica em Mogno reciclado e gaveteiro lateral integrado. A textura viva da madeira com acabamento em resina natural. Passagem para cabos embutida. Perfeita para home offices sofisticados.', 'Mogno Reciclado', '140 × 70 × 76 cm', 'Sob Medida')">
                 <div class="product-image">
-                    <img src="src/images/collection/p5.png" alt="Mesa Lateral Raiz" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+                    <img src="src/images/collection/p5.png" alt="Escrivaninha Viva Mogno">
                 </div>
-                <span class="product-badge">FSC Certificado</span>
-                <h3 class="product-name">Mesa Lateral Raiz</h3>
-                <p class="product-price">R$ 536</p>
-                <button class="btn btn-secondary" onclick="openProductModal('src/images/collection/p5.png', 'Mesa Lateral Raiz', 'R$ 536', 'Mesa lateral compacta em madeira reciclada certificada. Design minimalista com texturas naturais, perfeita para complementar ambientes living ou área de serviço.')">Ver Peça</button>
+                <span class="product-badge">Novo</span>
+                <div class="product-info">
+                    <span class="product-collection">Linha Ofício</span>
+                    <h3 class="product-name">Escrivaninha Viva Mogno</h3>
+                    <div class="product-price-row">
+                        <p class="product-price">R$ 2.190 <small>em até 12x</small></p>
+                        <button class="btn-view-product">Ver</button>
+                    </div>
+                </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" onclick="openProductModal('src/images/collection/p6.png', 'Mesa de Centro Mandacaru', 'R$ 980', 'Mesa de centro com base arquitetônica e tampo quadrado em madeira reciclada certificada. Inspirada nas formas geométricas do mandacaru nordestino. Design escultural que funciona como peça de arte no living.', 'Madeira Reciclada FSC', '80 × 80 × 35 cm', 'Artesanal')">
                 <div class="product-image">
-                    <img src="src/images/collection/p6.png" alt="Poltrona Tronco" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+                    <img src="src/images/collection/p6.png" alt="Mesa de Centro Mandacaru">
                 </div>
-                <span class="product-badge">FSC Certificado</span>
-                <h3 class="product-name">Poltrona Tronco</h3>
-                <p class="product-price">R$ 980</p>
-                <button class="btn btn-secondary" onclick="openProductModal('src/images/collection/p6.png', 'Poltrona Tronco', 'R$ 980', 'Poltrona de design contemporâneo em madeira reciclada certificada. Estrutura curvas e ergonômica que proporciona conforto e estilo ao ambiente.')">Ver Peça</button>
+                <span class="product-badge">Exclusivo</span>
+                <div class="product-info">
+                    <span class="product-collection">Linha Essência</span>
+                    <h3 class="product-name">Mesa de Centro Mandacaru</h3>
+                    <div class="product-price-row">
+                        <p class="product-price">R$ 980 <small>em até 12x</small></p>
+                        <button class="btn-view-product">Ver</button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -2065,7 +2330,7 @@
     <div class="product-modal-overlay" id="productModal">
         <div class="product-modal">
             <button class="product-modal-close" onclick="closeProductModal()">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1B4332" stroke-width="2">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1B4332" stroke-width="2.5">
                     <path d="M18 6L6 18M6 6l12 12"/>
                 </svg>
             </button>
@@ -2073,14 +2338,28 @@
                 <img id="modalProductImage" src="" alt="">
             </div>
             <div class="product-modal-content">
-                <span class="product-modal-badge">FSC Certificado</span>
+                <span class="product-modal-badge">Certificação FSC</span>
                 <h2 class="product-modal-title" id="modalProductName"></h2>
                 <p class="product-modal-price" id="modalProductPrice"></p>
                 <p class="product-modal-description" id="modalProductDescription"></p>
+                <div class="product-modal-details">
+                    <div class="product-modal-detail">
+                        <span>Material</span>
+                        <strong id="modalMaterial">—</strong>
+                    </div>
+                    <div class="product-modal-detail">
+                        <span>Dimensões</span>
+                        <strong id="modalDimensions">—</strong>
+                    </div>
+                    <div class="product-modal-detail">
+                        <span>Produção</span>
+                        <strong id="modalProduction">—</strong>
+                    </div>
+                </div>
                 <div class="product-modal-actions">
-                    <button class="btn-buy" onclick="buyProduct()">Comprar</button>
-                    <button class="btn-customize">Pedir Personalizado</button>
-                    <button class="btn-back" onclick="closeProductModal()">Voltar</button>
+                    <button class="btn-buy" onclick="buyProduct()">Adicionar ao Carrinho</button>
+                    <button class="btn-customize">Solicitar Sob Medida</button>
+                    <button class="btn-back" onclick="closeProductModal()">← Voltar à coleção</button>
                 </div>
             </div>
         </div>
@@ -2144,6 +2423,30 @@
             <p class="footer-small">Madeira 100% reciclada. Produção certificada FSC.</p>
         </div>
     </footer>
+
+    <!-- PDF Presentation Modal -->
+    <div class="pdf-modal-overlay" id="pdfModal">
+        <div class="pdf-modal-header">
+            <h2 class="pdf-modal-title">O Plano</h2>
+            <div class="pdf-controls">
+                <button class="pdf-control-btn" onclick="togglePdfFullscreen()" aria-label="Tela Cheia" title="Tela Cheia">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                    </svg>
+                </button>
+                <button class="pdf-control-btn" onclick="closePdfModal()" aria-label="Fechar Apresentação" title="Fechar">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="pdf-container">
+            <iframe src="src/slide.pdf#toolbar=0&navpanes=0&scrollbar=0&view=Fit" title="Apresentação O Plano"></iframe>
+        </div>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Navbar scroll behavior
@@ -2175,15 +2478,24 @@
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     const href = this.getAttribute('href');
-                    if (href.startsWith('#')) {
+                    if (href && href.startsWith('#') && href !== '#') {
                         e.preventDefault();
-                        const target = document.querySelector(href);
-                        if (target) {
-                            target.scrollIntoView({ behavior: 'smooth' });
-                            // Close mobile menu
-                            navbarLinks.classList.remove('active');
-                            navbarCta.classList.remove('active');
+                        try {
+                            const target = document.querySelector(href);
+                            if (target) {
+                                target.scrollIntoView({ behavior: 'smooth' });
+                                // Close mobile menu if open
+                                if (navbarLinks && navbarCta) {
+                                    navbarLinks.classList.remove('active');
+                                    navbarCta.classList.remove('active');
+                                    if(navbarToggle) navbarToggle.setAttribute('aria-expanded', 'false');
+                                }
+                            }
+                        } catch (err) {
+                            console.error('Invalid selector', href);
                         }
+                    } else if (href === '#') {
+                        e.preventDefault(); 
                     }
                 });
             });
@@ -2527,12 +2839,15 @@
             }
 
             // Product Modal Functions
-            window.openProductModal = function(imageSrc, name, price, description) {
+            window.openProductModal = function(imageSrc, name, price, description, material, dimensions, production) {
                 document.getElementById('modalProductImage').src = imageSrc;
                 document.getElementById('modalProductImage').alt = name;
                 document.getElementById('modalProductName').textContent = name;
                 document.getElementById('modalProductPrice').textContent = price;
                 document.getElementById('modalProductDescription').textContent = description;
+                if (material) document.getElementById('modalMaterial').textContent = material;
+                if (dimensions) document.getElementById('modalDimensions').textContent = dimensions;
+                if (production) document.getElementById('modalProduction').textContent = production;
                 document.getElementById('productModal').classList.add('active');
                 document.body.style.overflow = 'hidden';
             };
@@ -2556,8 +2871,69 @@
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape') {
                     closeProductModal();
+                    if (typeof closePdfModal === 'function') closePdfModal();
                 }
             });
+
+            // PDF Modal Functions
+            window.openPdfModal = function(e) {
+                if (e) e.preventDefault();
+                const pdfModal = document.getElementById('pdfModal');
+                if(pdfModal) {
+                    pdfModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                    
+                    // Focar no iframe automaticamente para fazer o teclado (setas) funcionar no PDF
+                    setTimeout(() => {
+                        const iframe = document.querySelector('.pdf-container iframe');
+                        if (iframe) {
+                            iframe.focus();
+                            // Alternativa para garantir o foco em alguns navegadores
+                            if (iframe.contentWindow) iframe.contentWindow.focus();
+                        }
+                    }, 300); // tempo para o modal animar a entrada
+                }
+            };
+
+            window.closePdfModal = function() {
+                const pdfModal = document.getElementById('pdfModal');
+                if(pdfModal) {
+                    pdfModal.classList.remove('active');
+                    document.body.style.overflow = '';
+                    // Sair de tela cheia se estiver
+                    if (document.fullscreenElement) {
+                        document.exitFullscreen().catch(err => console.error(err));
+                    }
+                }
+            };
+
+            window.togglePdfFullscreen = function() {
+                const pdfContainer = document.querySelector('.pdf-container');
+                if (!pdfContainer) return;
+                
+                if (!document.fullscreenElement) {
+                    if (pdfContainer.requestFullscreen) {
+                        pdfContainer.requestFullscreen();
+                    } else if (pdfContainer.webkitRequestFullscreen) { /* Safari */
+                        pdfContainer.webkitRequestFullscreen();
+                    } else if (pdfContainer.msRequestFullscreen) { /* IE11 */
+                        pdfContainer.msRequestFullscreen();
+                    }
+                } else {
+                    if (document.exitFullscreen) {
+                        document.exitFullscreen();
+                    }
+                }
+            };
+
+            const pdfModal = document.getElementById('pdfModal');
+            if (pdfModal) {
+                pdfModal.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        closePdfModal();
+                    }
+                });
+            }
         });
     </script>
 </body>
