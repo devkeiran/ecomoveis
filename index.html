@@ -1571,6 +1571,13 @@
             object-fit: cover;
             min-height: 480px;
             background: #F8F5F0;
+            transition: all 0.3s ease;
+        }
+
+        .product-modal-image img.no-zoom {
+            object-fit: contain;
+            padding: 2rem;
+            background: #F8F5F0;
         }
 
         .product-modal-content {
@@ -2840,8 +2847,16 @@
 
             // Product Modal Functions
             window.openProductModal = function(imageSrc, name, price, description, material, dimensions, production) {
-                document.getElementById('modalProductImage').src = imageSrc;
-                document.getElementById('modalProductImage').alt = name;
+                const imgEl = document.getElementById('modalProductImage');
+                imgEl.src = imageSrc;
+                imgEl.alt = name;
+                
+                if (name === "Mesa Extensível Ipê" || name === "Mesa de Centro Mandacaru") {
+                    imgEl.classList.add('no-zoom');
+                } else {
+                    imgEl.classList.remove('no-zoom');
+                }
+
                 document.getElementById('modalProductName').textContent = name;
                 document.getElementById('modalProductPrice').textContent = price;
                 document.getElementById('modalProductDescription').textContent = description;
@@ -2855,6 +2870,10 @@
             window.closeProductModal = function() {
                 document.getElementById('productModal').classList.remove('active');
                 document.body.style.overflow = '';
+                // Limpeza por precaução
+                setTimeout(() => {
+                    document.getElementById('modalProductImage').classList.remove('no-zoom');
+                }, 300);
             };
 
             window.buyProduct = function() {
